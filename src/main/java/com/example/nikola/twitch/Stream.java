@@ -85,7 +85,7 @@ public class Stream extends AppCompatActivity {
         };
 
     }
-
+    
     private class Follow extends  AsyncTask<String, Void, String>{
         HttpURLConnection urlConnection = null;
         @Override
@@ -102,6 +102,9 @@ public class Stream extends AppCompatActivity {
                 urlConnection.setRequestProperty("Authorization", "OAuth "+code);
                 urlConnection.setRequestMethod(params[0]);
                 urlConnection.connect();
+
+                System.out.println("ResponseCodeStream: " + urlConnection.getResponseCode());
+
             }catch (Exception e){
                 e.printStackTrace();
             }
